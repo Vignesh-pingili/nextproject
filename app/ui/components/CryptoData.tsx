@@ -1,5 +1,5 @@
 import BarCharts from './BarCharts';
-import CustomizedTables from './CryptoTable2';
+import CustomizedTables from './CryptoTable';
 import WebsiteContent from './WebsiteContent';
 
 interface CoinData {

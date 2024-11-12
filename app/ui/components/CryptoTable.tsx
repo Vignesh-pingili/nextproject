@@ -1,47 +1,86 @@
-// components/CryptoTable.tsx
-interface CoinData {
-  id: string;
-  market_cap_rank: number;
-  name: string;
-  image: string;
-  current_price: number;
-  price_change_percentage_24h: number;
-  market_cap: number;
+"use client";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { Box, Typography } from '@mui/material';
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
+
+function createData(
+  name: string,
+  calories: number,
+  fat: number,
+  carbs: number,
+  protein: number,
+) {
+  return { name, calories, fat, carbs, protein };
 }
 
-interface CryptoTableProps {
-  data: CoinData[];
-}
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
 
-const CryptoTable: React.FC<CryptoTableProps> = ({ data }) => {
+export default function CustomizedTables(data:any) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Coin</th>
-          <th>Price</th>
-          <th>24h Change</th>
-          <th>Market Cap</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((coin) => (
-          <tr key={coin.id}>
-            <td>{coin.market_cap_rank}</td>
-            <td>
-              <img src={coin.image} alt={coin.name} width="20" height="20" /> {coin.name}
-            </td>
-            <td>${coin.current_price.toLocaleString()}</td>
-            <td style={{ color: coin.price_change_percentage_24h < 0 ? 'red' : 'green' }}>
-              {coin.price_change_percentage_24h.toFixed(2)}%
-            </td>
-            <td>${coin.market_cap.toLocaleString()}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <Box p={2}>
+    <TableContainer component={Paper} sx={{p:2}}>
+      <Table sx={{ minWidth: 600 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Rank</StyledTableCell>
+            <StyledTableCell align="right">Coin</StyledTableCell>
+            <StyledTableCell align="right">Price&nbsp;($)
+            </StyledTableCell>
+            <StyledTableCell align="right">24h Change</StyledTableCell>
+            <StyledTableCell align="right">Market Cap</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data?.data?.map((row:any) => (
+            <StyledTableRow key={row.id}>
+              <StyledTableCell  scope="row">
+                {row.market_cap_rank}
+              </StyledTableCell>
+                 <StyledTableCell align="right"><Box sx={{display:"flex",gap:1,alignItems:"center",justifyContent:"flex-end"}}>
+                     <img src={row.image} alt={row.name} width="20" height="20" /><Typography>{row.name}</Typography>
+                    </Box></StyledTableCell>
+              <StyledTableCell align="right">{row.current_price}</StyledTableCell>
+              <StyledTableCell align="right">{row.price_change_24h}</StyledTableCell>
+              <StyledTableCell align="right">{row.market_cap}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+     </Box>
   );
-};
+}
 
-export default CryptoTable;
