@@ -60,6 +60,9 @@ importers:
       react-dom:
         specifier: 19.0.0-rc-cd22717c-20241013
         version: 19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013)
+      react-fast-marquee:
+        specifier: ^1.6.5
+        version: 1.6.5(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
       styled-components:
         specifier: ^6.1.13
         version: 6.1.13(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
@@ -1331,6 +1334,12 @@ packages:
     resolution: {integrity: sha512-NzjTBOXygonUxLRQuUUW5V2QLGkAcyUwJoS8+UWxs089paMvQQfoRD51w65Ovgd2OEQ8Rm3HWx+82fvXiT0czQ==}
     peerDependencies:
       react: 19.0.0-rc-cd22717c-20241013
+
+  react-fast-marquee@1.6.5:
+    resolution: {integrity: sha512-swDnPqrT2XISAih0o74zQVE2wQJFMvkx+9VZXYYNSLb/CUcAzU9pNj637Ar2+hyRw6b4tP6xh4GQZip2ZCpQpg==}
+    peerDependencies:
+      react: '>= 16.8.0 || ^18.0.0'
+      react-dom: '>= 16.8.0 || ^18.0.0'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2818,6 +2827,11 @@ snapshots:
     dependencies:
       react: 19.0.0-rc-cd22717c-20241013
       scheduler: 0.25.0-rc-cd22717c-20241013
+
+  react-fast-marquee@1.6.5(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013):
+    dependencies:
+      react: 19.0.0-rc-cd22717c-20241013
+      react-dom: 19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013)
 
   react-is@16.13.1: {}
 

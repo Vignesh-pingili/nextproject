@@ -64,7 +64,7 @@ export default function CustomizedTables(data:any) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data?.data?.map((row:any) => (
+          {data.data.map((row:any) => (
             <StyledTableRow key={row.id}>
               <StyledTableCell  scope="row">
                 {row.market_cap_rank}
