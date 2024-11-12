@@ -20,7 +20,7 @@ const chartSetting = {
 export default function BarCharts(data:any) {
   return (
   <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-    <div className='card' style={{display:"inline-block",margin:"20px"}}>
+    <div  style={{display:"inline-block",margin:"20px"}} className="card transition-transform duration-300 ease-in-out transform hover:scale-80 hover:translate-z-10">
  <BarChart 
       dataset={data.data}
       yAxis={[{ scaleType: 'band', dataKey: 'name' }]}

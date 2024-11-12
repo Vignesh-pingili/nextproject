@@ -8,10 +8,10 @@ function WebsiteContent() {
     <div>
         <Box sx={{display:"flex"}}>
             <Card sx={{m:1}}>
-<img src='crypto-market-making.jpg' style={{ height:"340px"}}/>
+<img className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:translate-z-10" src='crypto-market-making.jpg' style={{ height:"340px"}}/>
             </Card>
             <Card sx={{m:1}}>
-<img src='BTCUSD_2024-09-26_10-35-27-2048x1206.png' style={{ height:"340px"}}/>
+<img src='BTCUSD_2024-09-26_10-35-27-2048x1206.png' style={{ height:"340px"}} className="transition-transform duration-300 ease-in-out transform hover:scale-110 hover:translate-z-10"/>
 
             </Card>
         </Box>
