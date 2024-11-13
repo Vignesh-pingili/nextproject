@@ -8,30 +8,29 @@ const chartSetting = {
       label: 'price',
     },
   ],
-  width: 900,
-  height: 400,
+  width: 400,
+  height: 500,
   sx: {
-    [` .${axisClasses.label}`]: {
+    [` .${axisClasses.left} .${axisClasses.label}`]: {
       transform: 'translate(-10px, 0)',
-    },m:'28px 0px'
+    }
   },
 };
 
 export default function BarCharts(data:any) {
   return (
   <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-    <div  style={{display:"inline-block",margin:"20px"}} className="card transition-transform duration-300 ease-in-out transform hover:scale-80 hover:translate-z-10">
- <BarChart 
+    <div  style={{display:"inline-block"}} >
+ <BarChart
       dataset={data.data}
-      yAxis={[{ scaleType: 'band', dataKey: 'name' }]}
+      yAxis={[{ scaleType: 'band', dataKey: 'name',tickFontSize:10,tickSize:1}]}
       series={[
-        { dataKey: 'market_cap',}
+        { dataKey: 'market_cap'}
       ]}
       layout="horizontal"
       {...chartSetting}
     />
     </div>
-   
     </div>
   );
 }

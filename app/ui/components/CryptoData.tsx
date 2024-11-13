@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import BarCharts from './BarCharts';
 import CustomizedTables from './CryptoTable';
 import WebsiteContent from './WebsiteContent';
@@ -37,12 +38,13 @@ export default async function CryptoPage() {
         <div>
           <WebsiteContent></WebsiteContent>
         </div>
-        {data && <div>
+        <Box sx={{display:"flex",overflow:"scroll"}}>
+           <CustomizedTables data={data}/>
            <BarCharts data={data}/>
-        <div>
-          <CustomizedTables data={data}/>
-        </div>
-          </div>}
+        </Box>
+ 
+      
+       
        
     </div>
   );
